@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="jquery/dist/jquery.min.js"></script>
+<style>
+    .main{
+        margin:50px ;
+    }
+    input[type="radio"] {
+        margin: 3px 3px 0px 5px;
+        /*display: none;*/
+    }
+
+    label {
+        cursor: pointer;
+        /* background-color: #00b3ee; */
+        color: #635a5a;
+        padding: 5px 10px;
+        border-radius: 2px;
+        border: 1px solid;
+        border: 1px solid #DCDFE6;
+
+    }
+
+    label:active {
+        border: 1px solid #409EFF;
+    }
+
+    label:focus {
+        border: 1px solid #409EFF;
+    }
+
+    input:focus {
+        border: 1px solid #409EFF;
+    }
+
+    ::selection {
+        border: 1px solid #409EFF;
+    }
+
+    ::-moz-selection {
+        border: 1px solid #409EFF;
+    }
+
+    label.checked {
+        background-position: left bottom;
+        border: 1px solid #409EFF;
+    }
+
+    input[type=radio]:focus {
+        border: 2px solid #409EFF;
+    }
+</style>
+<body>
+<div class="main">
+
+        <input type="radio" id="nba" checked="checked" name="sport" value="nba">
+        <label name="nba" class="checked" for="nba">NBA</label>
+        <input type="radio" id="cba" name="sport" value="cba">
+        <label name="cba" for="cba">CBA</label>
+</div>
+<script language="javascript">
+    $(function () {
+        $('label').click(function () {
+            var radioId = $(this).attr('name');
+            $('label').removeAttr('class') && $(this).attr('class', 'checked');
+            $('input[type="radio"]').removeAttr('checked') && $('#' + radioId).attr('checked', 'checked');
+        });
+    });
+
+
+</script>
+</body>
+</html>
